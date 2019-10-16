@@ -12,7 +12,7 @@ You should eventually see the following message:
 Point your web browser at http://localhost:9000
 You should get a REPL. (Note that the REPL will appear in your terminal, not in the browser.)
 Run `tail -f out/watch.log` in a fresh terminal to view auto build progress.
-At the REPL prompt, require your namespace by evaluating `(require '[bc.cljs.core :as hello])`
+At the REPL prompt, require your namespace by evaluating `(require '[bccljs.core :as hello])`
 
 ## Build project
 `java -cp cljs.jar:src clojure.main build.clj`
