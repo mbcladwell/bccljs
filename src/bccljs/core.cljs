@@ -1,9 +1,7 @@
 (ns bccljs.core)
 
- (enable-console-print!)
-
-(defn hello [] "hello There")
-
-(println (hello))
+[:div
+[:h1 "Hello!"]
+ [:p "This is my message."]]
 
 
