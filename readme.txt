@@ -9,3 +9,7 @@ sudo ./linux-install-1.10.1.469.sh
 	https://purelyfunctional.tv/guide/reagent/
 
 https://medium.com/@kirill.ishanov/building-forms-with-re-frame-and-clojure-spec-6cf1df8a114d
+
+
+mbc@xps:~/projects/bccljs$ lein new figwheel-main bccljs.core -- --reagent
+mbc@xps:~/projects/bccljs/bccljs.core$ lein fig:build
