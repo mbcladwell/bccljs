@@ -1,0 +1,12 @@
+-- -*- mode: sql; sql-product: mysql; -*-
+
+DROP TABLE IF EXISTS customer CASCADE;
+CREATE TABLE customer(id SERIAL,
+		first_name VARCHAR(35), 
+                           last_name VARCHAR(35),
+			   institution VARCHAR(65),
+                           email VARCHAR(35)
+                           payment_id INTEGER,
+                           t1 TIMESTAMP
+FOREIGN KEY (payment_id) REFERENCES payment(id));
+
