@@ -4,7 +4,8 @@
   :dependencies [[org.clojure/clojure "1.9.0"]
                  [org.clojure/clojurescript "1.10.339"]
                   [org.clojure/java.jdbc "0.7.5"]
-                 [mysql/mysql-connector-java "8.0.11"]]
+                 [mysql/mysql-connector-java "8.0.11"]
+                 [com.google.protobuf/protobuf-java "3.6.1"]]
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-npm "0.6.2"]]
   :npm {:dependencies [[source-map-support "0.4.0"]]}

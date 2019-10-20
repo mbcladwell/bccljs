@@ -3,9 +3,6 @@
    [goog.dom :as gdom]
    [reagent.core :as reagent :refer [atom]]))
 
-;;lein fig:build
-;;https://reagent-project.github.io/
-
 (println "This text is printed from src/bccljs/core.cljs. Go ahead and edit it and see reloading in action.")
 
 (defn multiply [a b] (* a b))
@@ -14,39 +11,13 @@
 ;; define your app data so that it doesn't get over-written on reload
 (defonce app-state (atom {:text "Hello world!"}))
 
-(def click-count (reagent/atom 0))
-
- (def conn {:classname "com.mysql.jdbc.Driver" 
-                :subprotocol "mysql" 
-                :subname "//192.254.187.215:3306/plapan_license" 
-          :user "plapan_lic_admin"
-            :password "welcome"})
-
-(defn query-mysql [s]
- (with-connection conn
-          (with-query-results rs ["select * from payment"]
-            (dorun (map #(println (:wallet_id %)) rs)))))
-
-(defn counting-component []
-  [:div
-   "The atom " [:code "click-count"] " has value: "
-   @click-count ". "
-   [:input {:type "button" :value "Click me!"
-            :on-click #(swap! click-count inc)}]])
-
-
-
 (defn get-app-element []
   (gdom/getElement "app"))
 
 (defn hello-world []
   [:div
-   [:img  {:src "images/las.png"} ]
-   [:h3 "License Registration"]
-   (counting-component)
- 
-   ])
-
+   [:h1 (:text @app-state)]
+   [:h3 "Edit this in src/bccljs/core.cljs and watch it change!"]])
 
 (defn mount [el]
   (reagent/render-component [hello-world] el))

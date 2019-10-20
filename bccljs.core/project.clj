@@ -10,7 +10,8 @@
                  [org.clojure/clojurescript "1.10.520"]
                  [reagent "0.8.1"]
                  [org.clojure/java.jdbc "0.7.5"]
-                 [mysql/mysql-connector-java "8.0.11"]]
+                 [mysql/mysql-connector-java "8.0.11"]
+                 [com.google.protobuf/protobuf-java "3.6.1"]]
 
   :source-paths ["src"]
 
