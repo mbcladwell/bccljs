@@ -1,8 +1,11 @@
 (ns ^:figwheel-hooks bccljs.core
   (:require
    [goog.dom :as gdom]
-   [reagent.core :as reagent :refer [atom]]
-   [clojure.java.jdbc :as j]))
+   [reagent.core :as r :refer [atom]]
+
+
+   ;;[clojure.java.jdbc :as j]
+))
 
 ;;lein fig:build
 ;;https://reagent-project.github.io/
@@ -15,7 +18,7 @@
 ;; define your app data so that it doesn't get over-written on reload
 (defonce app-state (atom {:text "Hello world!"}))
 
-(def click-count (reagent/atom 0))
+(def click-count (r/atom 0))
 
  ;; (def conn {:classname "com.mysql.jdbc.Driver" 
  ;;                :subprotocol "mysql" 
@@ -33,10 +36,10 @@
 
 
 
-(defn query-mysql [s]
-  (j/query mysql-db
-  ["select * from payment"]
-  {:row-fn (println %)}))
+;;(defn query-mysql [s]
+;;  (j/query mysql-db
+;;  ["select * from payment"]
+;;  {:row-fn (println %)}))
   
 
 (defn counting-component []
@@ -53,15 +56,31 @@
 
 (defn hello-world []
   [:div
-   [:img  {:src "images/las.png"} ]
-   [:h3 "License Registration"]
+   [:h4 "First Name:"][:input {:type "text"}]
+   [:h4 "Last Name:"]
+   [:h4 "Institution:"]
+   [:h4 "email:"]
+   [:h4 "Method:"]
    (counting-component)
  
    ])
 
 
+
+(defn atom-input [value]
+  [:input {:type "text"
+           :value @value
+           :on-change #(reset! value (-> % .-target .-value))}])
+
+(defn shared-state []
+  (let [val (r/atom "foo")]
+    (fn []
+      [:div
+       [:p "The value is now: " @val]
+       [:p "Change it here: " [atom-input val]]])))
+
 (defn mount [el]
-  (reagent/render-component [hello-world] el))
+  (r/render-component [shared-state] el))
 
 (defn mount-app-element []
   (when-let [el (get-app-element)]

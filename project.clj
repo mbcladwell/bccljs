@@ -9,13 +9,14 @@
   :jvm-opts ^:replace ["-Xmx1g" "-server"]
   :plugins [[lein-npm "0.6.2"]]
   :npm {:dependencies [[source-map-support "0.4.0"]]}
-  :source-paths ["src" "target/classes"]
+  :source-paths ["src" "target/classes" "src/bccljs"]
   :clean-targets [:target-path "out" "release"]
   :target-path "target"
   :resources "resources"
   :profiles {:dev {:dependencies
                    [[com.bhauman/figwheel-main "0.2.3"]
                     [org.clojure/clojurescript "1.10.339"]
-                    [com.bhauman/rebel-readline-cljs "0.1.4"]]
+                    [com.bhauman/rebel-readline-cljs "0.1.4"]
+                    [hiccup "1.0.4"]]
                     :resource-paths ["target"]}}
   :aliases {"fig" ["trampoline" "run" "-m" "figwheel.main"]})
