@@ -7,6 +7,8 @@
    ;;[clojure.java.jdbc :as j]
 ))
 
+;;http://people.cs.ksu.edu/~hankley/d764/tut06/GopisettyPHP.html
+;; https://vimeo.com/223309989
 ;;lein fig:build
 ;;https://reagent-project.github.io/
 
@@ -73,11 +75,21 @@
            :on-change #(reset! value (-> % .-target .-value))}])
 
 (defn shared-state []
-  (let [val (r/atom "foo")]
+  (let [fname (r/atom "foo")
+        lname (r/atom "")
+        institution (r/atom "")
+        email  (r/atom "")]
     (fn []
       [:div
-       [:p "The value is now: " @val]
-       [:p "Change it here: " [atom-input val]]])))
+       [:p "First Name: " [atom-input fname]]
+       [:p "Last Name: " [atom-input lname]]
+       [:p "Institution: " [atom-input institution]]
+       [:p "email: " [atom-input email]]
+[:p    (str "The atom has values: first: " @fname " last: " @lname " email: " @email)
+     [:input {:type "button" :value "Click me!"
+            :on-click (print @lname)}]]
+])
+       ))
 
 (defn mount [el]
   (r/render-component [shared-state] el))

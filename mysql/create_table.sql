@@ -54,3 +54,6 @@ VALUES
     ('litecoin','LUVMGzbCW6qLjZnL1qZhEavULNV6nr681f'), 
     ('litecoin','LRXyZWdLBuJieyF7j375bBSECXGu6GDQkA'), 
     ('litecoin','LcuxDwGF2Pahh1QEL2fDRNGGMFRspyKwrd');
+
+
+SELECT * FROM customer;
