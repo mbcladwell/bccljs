@@ -3,6 +3,10 @@
     <head>
         <title>LAS License Manager</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+  
+  <link rel="stylesheet" href="css/style.css">
+  
     </head>
     <body>
 
@@ -10,8 +14,35 @@
       <h3>License Registration<h3>
 	
  
-    <div id="app">
+	  <div id="app">
     </div>
-    <script src="cljs-out/dev-main.js" type="text/javascript"></script>
-  </body>
+	  <script src="cljs-out/dev-main.js" type="text/javascript"></script>
+ </body>
+	  <?php
+$servername = "192.254.187.215";
+$username = "plapan_lic_admin";
+$password = "welcome";
+$dbname = "plapan_license";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "SELECT  first_name, last_name, email FROM customer";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo  "- Name: " . $row["first_name"]. " " . $row["last_name"]." " . $row["email: "]. "<br>";
+    }
+} else {
+    echo "0 results";
+}
+$conn->close();
+?> 
+ 
 </html>

@@ -19,4 +19,5 @@
                     [com.bhauman/rebel-readline-cljs "0.1.4"]
                     [hiccup "1.0.4"]]
                     :resource-paths ["target"]}}
-  :aliases {"fig" ["trampoline" "run" "-m" "figwheel.main"]})
+  :aliases {"fig" ["trampoline" "run" "-m" "figwheel.main"]
+            "fig:build" ["trampoline" "run" "-m" "figwheel.main" "-b" "dev" "-r"]})

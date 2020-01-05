@@ -12,10 +12,6 @@
 ;;lein fig:build
 ;;https://reagent-project.github.io/
 
-(println "This text is printed from src/bccljs/core.cljs. Go ahead and edit it and see reloading in action.")
-
-(defn multiply [a b] (* a b))
-
 
 ;; define your app data so that it doesn't get over-written on reload
 (defonce app-state (atom {:text "Hello world!"}))
