@@ -16,6 +16,7 @@ DROP TABLE IF EXISTS payment CASCADE;
 CREATE TABLE payment(id SERIAL,
 currency VARCHAR(35), 
 wallet_id VARCHAR(65),
+pwd VARCHAR(65),
 transaction_id VARCHAR(65),
 amount VARCHAR(35),
 valid BOOLEAN,
